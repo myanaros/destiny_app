@@ -7,7 +7,7 @@ module GateGuard
     #Find the Guard with the same tables prefix
     unless User.where(name: "Guard", tables_prefix: tables_prefix).present?
       guard = User.new({
-        email:"guard@guard.com",
+        email:"guard#{tables_prefix}@guard.com",
         password: password,
         name: "Guard",
         tables_prefix: tables_prefix,
@@ -17,8 +17,9 @@ module GateGuard
     end
 
     Thread.new do
+      #binding.remote_pry
       session.visit url
-      session.fill_in(:user_email, with: "guard@guard.com")
+      session.fill_in(:user_email, with: "guard#{tables_prefix}@guard.com")
       session.fill_in(:user_password, with: password)
       session.click_button("Log in")
 

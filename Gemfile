@@ -65,6 +65,9 @@ end
 
 group :development do
   gem 'launchy'
+  gem 'pry'
+  gem 'pry-nav'
+  gem 'pry-remote'
 end
 
 # Use ActiveModel has_secure_password
