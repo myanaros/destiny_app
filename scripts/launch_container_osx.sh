@@ -2,7 +2,7 @@ SECRET_KEY_BASE=$(rake secret)
 SECRET_KEY=$(rake secret)
 PEPPER=$(rake secret)
 GUARD_PASS=$(rake secret)
-HOST=$(docker-machine ip)
+HOST="localhost"
 PORT="80"
 ALLOW_REGISTRATION="TRUE"
 
